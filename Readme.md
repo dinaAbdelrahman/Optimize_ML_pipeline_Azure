@@ -21,7 +21,7 @@ This model is then compared to an Azure AutoML run.
 
 
 
-![image_cluster_deleting](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/tree/main/snaps_project/cluster_deleting.png)
+![image_cluster_deleting](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/cluster_deleting.PNG)
 
 
 ```python
