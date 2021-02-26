@@ -13,8 +13,8 @@ The dataset had 20 different features about the customers and the number of rows
 
 <br>
 In this notebook, I am going to run experiment on microsoft azure studio in 2 different methods:<br>
-1. Using **LogisticRegression** algorithm to predict the marketing response of the customer, the parameters of the algorithm itself will be selected from a pool of values aiming on increasing the model accuracy. This is acheived by running a hyperdrive to select the parameters using a grid search of random selection <br>
-2. Using **AutoMl** to automate the whole process
+* Using **LogisticRegression** algorithm to predict the marketing response of the customer, the parameters of the algorithm itself will be selected from a pool of values aiming on increasing the model accuracy. This is acheived by running a hyperdrive to select the parameters using a grid search of random selection <br>
+* Using **AutoMl** to automate the whole process
 
 <img src="snaps_project/1-compute-run.png">
 
