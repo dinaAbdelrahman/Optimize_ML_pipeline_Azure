@@ -20,7 +20,7 @@ This model is then compared to an Azure AutoML run.
 
 
 
-![image_cluster_deleting](C:\Users\Dina\Notebooks_Python\Azure_Project1_Optimize_machine_learning_Pipeline\snaps_project\cluster_deleting.png)
+![image_cluster_deleting](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/tree/main/snaps_project/cluster_deleting.png)
 
 
 ```python
