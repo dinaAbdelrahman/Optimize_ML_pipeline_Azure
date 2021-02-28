@@ -31,7 +31,7 @@ Before I started working on the project, I created one compute instance to host 
 To run my training jobs, I created one compute cluster which consists of 4 machines STANDARD_DS3_V2 with one machine all time available to take up the initial work of performing the training preparation meanwhile the other 3 machines come up when the actual training job start. For cost saving, it is recommended to have the minimum machines set to 0. 
 <br>
 
-<img src="snaps_project/2-compute-cluster-idle.png">
+![i2](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/2-compute-cluster-idle.png>
 
 ## Scikit-learn Pipeline
 
@@ -46,7 +46,7 @@ Below is showing my workflow to run the Scikit-learn pipeline, I already have my
 
 
 
-<img src="Hyperdrive_flow.png">
+![i3](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/Hyperdrive_flow.png>
 
 <br>
 Here my experiment is submited successfully to run with run type Hyperdive<br>
