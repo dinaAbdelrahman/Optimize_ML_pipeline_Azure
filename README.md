@@ -2,18 +2,18 @@
 
 ## Overview
 
-This project is part of the Udacity Azure ML Nanodegree.
-In this project, we build and optimize an Azure ML pipeline using the Python SDK and a provided Scikit-learn model.
+This project is part of the Udacity Azure ML Nanodegree.<br>
+In this project, we build and optimize an Azure ML pipeline using the Python SDK and a provided Scikit-learn model.<br>
 This model is then compared to an Azure AutoML run.<br>
 
 ## Summary
 <br>
 The provided datasets contains the data of one banking marketing campagin used for training the machine learning model and the output is a binary output whether the customer will repond to the marketing campagin or not.<br> 
-The dataset had 20 different features about the customers and the number of rows are 32950 out of which the label no is 29258 represnting 87.79% so the labels are not comparable which risks the model having bias problem.
+The dataset had 20 different features about the customers and the number of rows are 32950 out of which the label no is 29258 represnting 87.79% so the labels are not comparable which risks the model having bias problem.<br>
 
 <br>
 In this notebook, I am going to run experiment on microsoft azure studio in 2 different methods:
-* LogisticRegression + hyperdive: algorithm to predict the marketing response of the customer, the parameters of the algorithm itself will be selected from a pool of values aiming on increasing the model accuracy. This is acheived by running a hyperdrive to select the parameters using a grid search of random selection. I used the hyperdrive to optimize the selection of c and max_iter<br>
+* LogisticRegression + hyperdive: algorithm to predict the marketing response of the customer, the parameters of the algorithm itself will be selected from a pool of values aiming on increasing the model accuracy. This is acheived by running a hyperdrive to select the parameters using a grid search of random selection. I used the hyperdrive to optimize the selection of c and max_iter <br>
 * AutoMl: to automate the whole process inclusding features selection, dataset featurization, cross validation and model selection and running<br><br>
 
 **Results Summary:**<br>
