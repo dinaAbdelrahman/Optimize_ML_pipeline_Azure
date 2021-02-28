@@ -51,7 +51,7 @@ Below is showing my workflow to run the Scikit-learn pipeline, I already have my
 <br>
 Here my experiment is submited successfully to run with run type Hyperdive<br>
 
-![i3](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/3-exp_hyperdrive_sent.png)
+![i3](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/3-exp_hyperdrive_sent.PNG)
 
 <br>
 From the azure console, the settings for running script train.py. The sampling policy is Random from the parameter space for C and max_iter, my early termination ploicy is using Bandit and the primary metric set to Accuracy
@@ -63,7 +63,7 @@ From the azure console, the settings for running script train.py. The sampling p
 4 children run has been prepared, the first one showing running state as I have 1 machine always on, while the other 3 are waiting Azure to turn on the other 3 machines.
 <br>
 
-![i5](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/5-child_preparing1.png)
+![i5](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/5-child_preparing1.PNG)
 
 <br>
 This is interesting part to monitor HW and that is the real benefit of using cloud to dynamically scal up/down resources as per requirements. Once Azure detect I have 4 parallel jobs, it starts scaling up the cluster from 1 active node to 4 which is the maximum of concurrent sessions, if my cluster has more machines only 4 will be up. If I have 4 nodes so cannot configure more concurrent jobs as it would exceed the allocated HW.
