@@ -46,7 +46,7 @@ Below is showing my workflow to run the Scikit-learn pipeline, I already have my
 
 
 
-![i3](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/Hyperdrive_flow.png>
+![i3](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/Hyperdrive_flow.PNG)
 
 <br>
 Here my experiment is submited successfully to run with run type Hyperdive<br>
