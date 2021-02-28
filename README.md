@@ -152,94 +152,94 @@ Below is showing my workflow to run the AutoML pipeline, I already have my compu
 6. Once the job is submitted, azure will handle all background work including Generating features for the dataset, fit featurizers and featurize the dataset, Dataset Cross Validation Split, and finally perform Models list Selection and fitting and recording their accuracy as being the selected the primary metrics to maximize during the run.
 7. After performing all runs, I register the model having the best accuracy
 
-<img src="AutoML_Flow.PNG)
+![iP2](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/AutoML_Flow.PNG)
 
 <br>
 Here my experiment is submited successfully to run with run type AutoML <br>
 
-<img src="snaps_project/22-automL_submit.PNG)
+![i22](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/22-automL_submit.PNG)
 
-<img src="snaps_project/23-autoML_featurisation.PNG)
+![i23](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/23-autoML_featurisation.PNG)
 
 <br>
 From the azure console, the primary metric set to Accuracy. I set the maximum time to run the AutoML is 0.5 hour and number of my cross validation to 5. Still I will have same max concurrent sessions to 4 while my cluster max number of nodes set to 4
 <br>
 
-<img src="snaps_project/24-automal_details.PNG)
+![i24](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/24-automal_details.PNG)
 
 <br>
 During the step of AutoML of data featurization, the class imbalance was detected which is highlighted in the start. This won't stop the run however it set an alert of the risk of model bias towards the biggest class which requires pre-work -as example- in the data preparation phase to resample the dataset to get comparable class. 
 <br>
 
-<img src="snaps_project/25-automl_data_evaluation.PNG)
+<![i25](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/25-automl_data_evaluation.PNG)
 
-<img src="snaps_project/26-automl_data_imbalance.PNG)
+![i26](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/26-automl_data_imbalance.PNG)
 
-<img src="snaps_project/27-automl_childs_start.PNG)
+![i27](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/27-automl_childs_start.PNG)
 
 <br>
 This is the same view we had in the start of the run of the hyperdrive, also in AutoML, all work of preparation is done on the up node. Once the actual model training starts, we can see Azure starts rezising the cluster from 1 node to 4 nodes to run the 4 concurrent training tasks.
 <br>
 
-<img src="snaps_project/28-automl_cluster_resize.PNG)
+![i28](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/28-automl_cluster_resize.PNG)
 
-<img src="snaps_project/29-automl_steps.PNG)
+![i29](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/29-automl_steps.PNG)
 
-<img src="snaps_project/30-automl_cluster_resize2.PNG)
+![i30](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/30-automl_cluster_resize2.PNG)
 
 <br>
 Now the AutoML slected few models to use them to train the input dataset. We don't need to split the input data into training and evaluation as this is part of the AutoML task.
 <br>
 
-<img src="snaps_project/31-automl_running_models.PNG)
+![i31](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/31-automl_running_models.PNG)
 <br>
 This is view of the models running with the consumed time to finish the training and evaluation job.
 <br>
 
-<img src="snaps_project/32-automl_running_iterations.PNG)
+![i32](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/32-automl_running_iterations.PNG)
 
 <br>
 We can see the 4 nodes are up while 2 are idle, in fact the training jobs are in the last 2 running on 2 nodes and 2 nodes are in idle state. This is also important observation, when Azure finish the task on one node it keep it in idle mode till the expiry of the timeout then this node is totally removed from the cluster. This prevent un-necessary destroy of node if new task coming during this timeout interval.
 <br>
 
-<img src="snaps_project/33-automl_instances_idle.PNG)
+<![i33](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/33-automl_instances_idle.PNG)
 
-<img src="snaps_project/34-automl_nodes_leaving.PNG)
+![i34](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/34-automl_nodes_leaving.PNG)
 
-<img src="snaps_project/35-automl_cluster_resize2_2.PNG)
+![i35](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/35-automl_cluster_resize2_2.PNG)
 
 <br>
 Finally our AutoML has completed in 23 minutes and 5 seconds which is almost 10 minutes greater than the Hyperdrive run while the accuracy gain is 0.01% so this is another factor to be taken into consideration.<br>
 Another comparison, the Hyperdrive had 12 runs while the AutoML had run 37 different algorithms.
 <br>
 
-<img src="snaps_project/36-automl_completed.PNG)
+![i36](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/36-automl_completed.PNG)
 
-<img src="snaps_project/37-automl_best_gui.PNG)
+![i37](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/37-automl_best_gui.PNG)
 
 <br>
 Our best run from the AutoML was acheived by the Voting Ensemble algorithm. In classification, a hard voting ensemble involves summing the votes for crisp class labels from other models and predicting the class with the most votes. A soft voting ensemble involves summing the predicted probabilities for class labels and predicting the class label with the largest sum probability.<br> Here the Voting Ensemble algorithm details involves taking the vote of 5 top algorithms but infortunately this information was lost due to VM running the workspace timeout.
 <br>
 
-<img src="snaps_project/38-automl_best_gui_2.PNG)
+![i38](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/38-automl_best_gui_2.PNG)
 
 <br>
 Below snaps shows the best model metrics apart from the accuracy as for such classification problem in presence of imbalance class, the F1_score maybe a better selection parameter for model preferences when we want to go into production state.
 <br>
 
-<img src="snaps_project/39-automl_best_model_metric.PNG)
+![i39](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/39-automl_best_model_metric.PNG)
 
 <br>
 My best AutoML is registered and appears in the models list
 <br>
 
-<img src="snaps_project/40-all_models.PNG)
+![i40](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/40-all_models.PNG)
 
 ## Pipeline comparison
 
 Below table summarize the pipeline running and my own observations:
 
-<img src="pipeline_compare.PNG)
+![iP3](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/pipeline_compare.PNG)
 
 
 ## Issues I faced during the project and solution
@@ -259,8 +259,8 @@ I beleive below steps can improve the work:
 
 Deleting resources after finishing required computation is very important to prevent over-charging as resources do not delete even being idle. AS I have manually created the cluster so need to delete it from the console as below:
 
-<img src="snaps_project/41-cluster_deleting.PNG)
+![i41](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/41-cluster_deleting.PNG)
 
 Now my cluster is no more showing in the compute clusters:
 
-<img src="snaps_project/42-cluster_deleted.PNG)
+![i42](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/42-cluster_deleted.PNG)
