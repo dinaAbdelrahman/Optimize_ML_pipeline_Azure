@@ -12,7 +12,8 @@ The provided datasets contains the data of one banking marketing campagin used f
 The dataset had 20 different features about the customers and the number of rows are 32950 out of which the label no is 29258 represnting 87.79% so the labels are not comparable which risks the model having bias problem.<br>
 
 <br>
-In this notebook, I am going to run experiment on microsoft azure studio in 2 different methods:
+In this notebook, I am going to run experiment on microsoft azure studio in 2 different methods:<br>
+
 * LogisticRegression + hyperdive: algorithm to predict the marketing response of the customer, the parameters of the algorithm itself will be selected from a pool of values aiming on increasing the model accuracy. This is acheived by running a hyperdrive to select the parameters using a grid search of random selection. I used the hyperdrive to optimize the selection of c and max_iter <br>
 * AutoMl: to automate the whole process inclusding features selection, dataset featurization, cross validation and model selection and running<br><br>
 
