@@ -25,7 +25,7 @@ Further information will be provided below in each startegy. <br>
 
 Before I started working on the project, I created one compute instance to host my jupiter notebook of one STANDARD_DS3_V2 instance.
 
-<img src="snaps_project/1-compute-run.png">
+![i1](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/1-compute-run.PNG)
 
 <br>
 To run my training jobs, I created one compute cluster which consists of 4 machines STANDARD_DS3_V2 with one machine all time available to take up the initial work of performing the training preparation meanwhile the other 3 machines come up when the actual training job start. For cost saving, it is recommended to have the minimum machines set to 0. 
