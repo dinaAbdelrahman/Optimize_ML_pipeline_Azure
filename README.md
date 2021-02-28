@@ -14,12 +14,12 @@ The dataset had 20 different features about the customers and the number of rows
 <br>
 In this notebook, I am going to run experiment on microsoft azure studio in 2 different methods:<br>
 * LogisticRegression + hyperdive: algorithm to predict the marketing response of the customer, the parameters of the algorithm itself will be selected from a pool of values aiming on increasing the model accuracy. This is acheived by running a hyperdrive to select the parameters using a grid search of random selection. I used the hyperdrive to optimize the selection of c and max_iter<br>
-* AutoMl: to automate the whole process inclusding features selection, dataset featurization, cross validation and model selection and running
+* AutoMl: to automate the whole process inclusding features selection, dataset featurization, cross validation and model selection and running<br>
 
 **Results Summary:**<br>
 I have evaluated both strategies based on the model accuracy:
 * LogisticRegression + hyperdive: the best model accuracy acheived was 91.58%
-* AutoMl: the best model accuracy acheived was 91.68% which is slightly higher than the hyperdrive results
+* AutoMl: the best model accuracy acheived was 91.68% which is slightly higher than the hyperdrive results <br>
 
 Further information will be provided below in each startegy. <br>
 
@@ -46,64 +46,64 @@ Below is showing my workflow to run the Scikit-learn pipeline, I already have my
 
 
 
-![i3](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/Hyperdrive_flow.PNG)
+![i_P1](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/Hyperdrive_flow.PNG)
 
 <br>
 Here my experiment is submited successfully to run with run type Hyperdive<br>
 
-<img src="snaps_project/3-exp_hyperdrive_sent.png">
+![i3](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/3-exp_hyperdrive_sent.png)
 
 <br>
 From the azure console, the settings for running script train.py. The sampling policy is Random from the parameter space for C and max_iter, my early termination ploicy is using Bandit and the primary metric set to Accuracy
 <br>
 
-<img src="snaps_project/4-hyper_drive_details.png">
+![i4](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/4-hyper_drive_details.PNG)
 
 <br>
 4 children run has been prepared, the first one showing running state as I have 1 machine always on, while the other 3 are waiting Azure to turn on the other 3 machines.
 <br>
 
-<img src="snaps_project/5-child_preparing1.png">
+![i5](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/5-child_preparing1.png)
 
 <br>
 This is interesting part to monitor HW and that is the real benefit of using cloud to dynamically scal up/down resources as per requirements. Once Azure detect I have 4 parallel jobs, it starts scaling up the cluster from 1 active node to 4 which is the maximum of concurrent sessions, if my cluster has more machines only 4 will be up. If I have 4 nodes so cannot configure more concurrent jobs as it would exceed the allocated HW.
 <br>
 
-<img src="snaps_project/6-resize_hyperdive.png">
+![i6](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/6-resize_hyperdive.PNG)
 
 <br>
 This is same view but showing all nodes, initially had one running nodes. So once resize command sent, we would see shortly 4 nodes up running
 <br>
 
-<img src="snaps_project/7-resize_hyperdive2.png">
+![i7](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/7-resize_hyperdive2.PNG)
 
-<img src="snaps_project/8-resize_hyperdive3.png">
+![i8](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/8-resize_hyperdive3.PNG)
 
 <br>
 Back to our experiment, the first child is done and 4 more children initialized and running on the 4 nodes. Not every run has same time of execution so we can see run 5 is in late stage and is almost finialized. This shows the parallelizm power of submitting runs so once 1 run is done, another is put in schedule. Another observation is each run has different value for C and max_iter as specified in the hyperdrive settings so that confirm the execution going as intended.
 <br>
 
-<img src="snaps_project/9-exp_hyperdrive_execution.png">
+![i9](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/9-exp_hyperdrive_execution.PNG)
 
 <br>
 All our 4 nodes are busy, handling the chidren runs. Scaling the HW up and down fully managed by Azure.
 <br>
 
-<img src="snaps_project/10-hyperdrive_all_nodes_running.png">
+![i10](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/10-hyperdrive_all_nodes_running.PNG)
 
 <br>
 At this instance, 6 children are competed out of 12.
 <br>
 
-<img src="snaps_project/11-hyper_6done.png">
+![i11](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/11-hyper_6done.PNG)
 
 <br>
 Now the hyperdrive has competed successfully, time taken is 13 minutes and 6 seconds to run 12 differents children across 4 nodes. All 12 runs ended without errors.
 <br>
 
-<img src="snaps_project/12-hyperdrive_complete.png">
+![i12](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/12-hyperdrive_complete.PNG)
 
-<img src="snaps_project/13-hyperdrive_complete_2.png">
+![i13](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/13-hyperdrive_complete_2.PNG)
 
 <br>
 Finally was able to get the best run showing in my notebook after several troubleshooting as from console was showing sucess but no best run --> please check the section "Issues I faced during the project and solution" for further details.
