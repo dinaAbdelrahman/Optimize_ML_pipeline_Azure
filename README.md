@@ -166,15 +166,15 @@ Here my experiment is submited successfully to run with run type AutoML <br>
 ![i23](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/23-autoML_featurisation.PNG)
 
 <br>
-Below shows the basic settings of my AutoML run:
+Below shows the basic settings of my AutoML run:<br>
 * the primary metric set to Accuracy which is used to rank models and selection of best one. <br>
 * I set the maximum time to run the AutoML is 0.5 hour to try different models, can be increased in case of larger datset or to try more models <br>
-* enable early stopping set to True to enable early termination if the score is not improving and has been constant for a period of time.
-* iteration_timeout_minutes set to 5 minutes which is the Maximum time in minutes that each iteration can run for before it terminates
-* max_cores_per_iteration set to -1 which means to use all the possible cores per iteration per child-run.
-* n_cross_validations set to 5 which is the number of cross validations to perform when user validation data is not specified
-* Still I will have same max concurrent sessions to 4 as my cluster max number of nodes set to 4
-* verbosity: The verbosity level for writing to the log file, I specified all Info logs
+* enable early stopping set to True to enable early termination if the score is not improving and has been constant for a period of time. <br>
+* iteration_timeout_minutes set to 5 minutes which is the Maximum time in minutes that each iteration can run for before it terminates <br>
+* max_cores_per_iteration set to -1 which means to use all the possible cores per iteration per child-run. <br>
+* n_cross_validations set to 5 which is the number of cross validations to perform when user validation data is not specified<br>
+* Still I will have same max concurrent sessions to 4 as my cluster max number of nodes set to 4 <br>
+* verbosity: The verbosity level for writing to the log file, I specified all Info logs <br>
 <br>
 
 ![i24](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/24-automal_details.PNG)
