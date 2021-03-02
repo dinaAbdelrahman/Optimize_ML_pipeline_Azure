@@ -56,9 +56,9 @@ Here my experiment is submited successfully to run with run type Hyperdive<br>
 
 <br><br>
 From the azure console, the settings for running script train.py. <br>
-The sampling policy is Random selection from the parameter space for C and max_iter to verify which combination will give better model with respect to my primary metric which is the accuracy.<br>
-Early termination policies can be applied to HyperDrive runs, A run is cancelled when the criteria of a specified policy are met and hence saves resources and time. My early termination ploicy is using Bandit which defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation. further information can be found here: https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py <br>
-The primary metric of the hyperdrive set to Accuracy
+* The sampling policy is Random selection from the parameter space for C and max_iter to verify which combination will give better model with respect to my primary metric which is the accuracy.<br>
+* Early termination policies can be applied to HyperDrive runs, A run is cancelled when the criteria of a specified policy are met and hence saves resources and time. My early termination ploicy is using Bandit which defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation which I used their default value. further information can be found here: https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py <br>
+* The primary metric of the hyperdrive set to Accuracy
 <br><br>
 
 ![i4](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/4-hyper_drive_details.PNG)
@@ -166,7 +166,15 @@ Here my experiment is submited successfully to run with run type AutoML <br>
 ![i23](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/23-autoML_featurisation.PNG)
 
 <br>
-From the azure console, the primary metric set to Accuracy. I set the maximum time to run the AutoML is 0.5 hour and number of my cross validation to 5. Still I will have same max concurrent sessions to 4 while my cluster max number of nodes set to 4
+Below shows the basic settings of my AutoML run:
+* the primary metric set to Accuracy which is used to rank models and selection of best one. <br>
+* I set the maximum time to run the AutoML is 0.5 hour to try different models, can be increased in case of larger datset or to try more models <br>
+* enable early stopping set to True to enable early termination if the score is not improving and has been constant for a period of time.
+* iteration_timeout_minutes set to 5 minutes which is the Maximum time in minutes that each iteration can run for before it terminates
+* max_cores_per_iteration set to -1 which means to use all the possible cores per iteration per child-run.
+* n_cross_validations set to 5 which is the number of cross validations to perform when user validation data is not specified
+* Still I will have same max concurrent sessions to 4 as my cluster max number of nodes set to 4
+* verbosity: The verbosity level for writing to the log file, I specified all Info logs
 <br>
 
 ![i24](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/24-automal_details.PNG)
