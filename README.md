@@ -55,7 +55,10 @@ Here my experiment is submited successfully to run with run type Hyperdive<br>
 ![i3](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/3-exp_hyperdrive_sent.PNG)
 
 <br><br>
-From the azure console, the settings for running script train.py. The sampling policy is Random from the parameter space for C and max_iter, my early termination ploicy is using Bandit and the primary metric set to Accuracy
+From the azure console, the settings for running script train.py. <br>
+The sampling policy is Random selection from the parameter space for C and max_iter to verify which combination will give better model with respect to my primary metric which is the accuracy.<br>
+Early termination policies can be applied to HyperDrive runs, A run is cancelled when the criteria of a specified policy are met and hence saves resources and time. My early termination ploicy is using Bandit which defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation. further information can be found here: https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py <br>
+The primary metric of the hyperdrive set to Accuracy
 <br><br>
 
 ![i4](https://github.com/dinaAbdelrahman/Optimize_ML_pipeline_Azure/blob/main/snaps_project/4-hyper_drive_details.PNG)
